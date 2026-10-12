@@ -1,0 +1,30 @@
+[project]
+name = "chagatai-diffusionbert"
+version = "0.1.0"
+description = "Discrete Absorbing-State Diffusion for Classical Chagatai text generation and infilling"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    { name = "Nurasyl Beisenbek" }
+]
+dependencies = [
+    "arabic-reshaper>=3.0.0",
+    "numpy>=1.24.0",
+    "pillow>=10.0.0",
+    "python-bidi>=0.4.2",
+    "rich>=13.0.0",
+    "torch>=2.0.0",
+    "transformers>=4.30.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=7.0.0",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]

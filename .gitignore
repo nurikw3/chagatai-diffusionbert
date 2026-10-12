@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Environments
+.venv/
+env/
+venv/
+.env
+
+# PyTorch & Weights
+*.pt
+*.bin
+*.onnx
+models/
+checkpoint-*/
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
+
+# Logs
+logs/
+*.log
