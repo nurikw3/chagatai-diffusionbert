@@ -15,14 +15,14 @@ Unlike standard autoregressive models (like GPT) that generate tokens strictly f
 
 ## 📽️ Live Generation Demos
 
-### 1. Unconditional Free Generation (Pure Noise $\to$ Authentic Sentence)
+### 1. Unconditional Free Generation (Pure Noise → Authentic Sentence)
 *Starting from 100% `<|mask|>` tokens with zero prompt, the model iteratively resolves global syntax and vocabulary into an authentic Chagatai sentence.*
 
 ![Unconditional Diffusion](assets/diffusion_unconditional.gif)
 
 ---
 
-### 2. Conditional Historical Infilling (Prompt $\to$ Contextual Continuation)
+### 2. Conditional Historical Infilling (Prompt → Contextual Continuation)
 *Given a prompt prefix (e.g. `ظهیرالدین محمد بابر پادشاه` — Zahir al-Din Muhammad Babur Padishah), the model pins the prompt and bidirectionally infills the remaining tokens to synthesize a syntactically coherent sentence.*
 
 ![Infilling Diffusion](assets/diffusion_infilling.gif)
@@ -68,7 +68,7 @@ To enable the transformer to perceive the current corruption level, the scalar d
 
 $$\text{PE}_{(t, 2i)} = \sin\left(\frac{t}{10000^{2i/d}}\right), \quad \text{PE}_{(t, 2i+1)} = \cos\left(\frac{t}{10000^{2i/d}}\right)$$
 
-This embedding is passed through a two-layer GELU MLP ($\text{time\_mlp}$) and added directly to the token embeddings before the transformer layers:
+This embedding is passed through a two-layer GELU MLP (`time_mlp`) and added directly to the token embeddings before the transformer layers:
 
 $$\mathbf{E}_{\text{in}} = \text{Embedding}(x_t) + \text{MLP}(t)$$
 
@@ -159,18 +159,3 @@ Trained on deduplicated historical Chagatai manuscripts (*Babur-nama*, *Shajara-
 * **Distinct-1 (Unique Unigrams):** `0.711` (71.1% lexical diversity).
 * **Distinct-2 (Unique Bigrams):** `1.000` (100.0% novel phrase constructions — zero verbatim duplication).
 * **Perplexity Reduction:** MLM cross-entropy loss dropped from `8,889.01` to `245.40` during fine-tuning.
-
----
-
-## 📖 Citation
-
-If you find this work useful in your research on historical Turkic NLP, sentence boundary detection, or discrete text diffusion, please cite:
-
-```bibtex
-@software{beisenbek2026chagatai_diffusion,
-  author = {Beisenbek, B. Nurasyl},
-  title = {Chagatai DiffusionBERT: Discrete Absorbing-State Diffusion for Classical Turkic Texts},
-  year = {2026},
-  url = {https://github.com/nurikw3/chagatai-diffusionbert}
-}
-```
